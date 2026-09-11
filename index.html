@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fred Chung | Senior Identity Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0f172a',
+                        cardbg: '#1e293b',
+                        accent: '#38bdf8'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-darkbg text-slate-300 antialiased min-h-screen flex flex-col">
+
+    <!-- Header / Nav -->
+    <nav class="max-w-5xl mx-auto w-full p-6 flex justify-between items-center border-b border-slate-800">
+        <div class="text-xl font-bold text-white tracking-wide">poutine-lab<span class="text-accent">.com</span></div>
+        <div class="space-x-4">
+            <a href="https://www.linkedin.com/in/frederick-chung/" target="_blank" class="hover:text-accent transition-colors duration-200 text-sm font-semibold">LinkedIn</a>
+            <a href="https://github.com/fredericktchung-byte" target="_blank" class="hover:text-accent transition-colors duration-200 text-sm font-semibold">GitHub</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="max-w-5xl mx-auto w-full p-6 py-20 flex flex-col items-start">
+        <h1 class="text-5xl font-extrabold text-white mb-4 tracking-tight">Fred Chung</h1>
+        <h2 class="text-2xl text-slate-400 mb-8">Senior Identity Architect & Systems Engineer</h2>
+        <p class="text-lg leading-relaxed max-w-2xl text-slate-300 mb-10">
+            Specializing in Identity-as-Code, Zero Trust architecture, and advanced workflow automation. I bridge the gap between enterprise security governance and frictionless user experiences using Okta, AWS, and modern IaC deployments.
+        </p>
+        
+        <!-- Certifications Badge Row -->
+        <div class="flex flex-wrap gap-3 mb-10">
+            <span class="px-3 py-1 bg-cardbg border border-slate-700 rounded-full text-sm text-accent font-medium">Okta Certified Consultant</span>
+            <span class="px-3 py-1 bg-cardbg border border-slate-700 rounded-full text-sm text-accent font-medium">Okta Workflows Specialty</span>
+            <span class="px-3 py-1 bg-cardbg border border-slate-700 rounded-full text-sm text-accent font-medium">CCZT & CCSK v.5 (CSA)</span>
+            <span class="px-3 py-1 bg-cardbg border border-slate-700 rounded-full text-sm text-accent font-medium">AWS Certified Cloud Practitioner</span>
+        </div>
+    </header>
+
+    <!-- Projects & Case Studies -->
+    <main class="max-w-5xl mx-auto w-full p-6 flex-grow">
+        <h3 class="text-3xl font-bold text-white mb-8 border-b border-slate-800 pb-2">Technical Showcases</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Project 1 -->
+            <div class="bg-cardbg p-6 rounded-xl border border-slate-700 hover:border-accent transition-colors duration-300">
+                <h4 class="text-xl font-bold text-white mb-3">Enterprise Identity-as-Code</h4>
+                <p class="text-sm text-slate-400 mb-4">A modular Terraform deployment framework for automated enterprise identity lifecycle management utilizing Okta. Features dynamic network perimeters and automated app provisioning.</p>
+                <div class="flex gap-2">
+                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Terraform</span>
+                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Okta</span>
+                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">GitHub Actions</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="bg-cardbg p-6 rounded-xl border border-slate-700 hover:border-accent transition-colors duration-300">
+                <h4 class="text-xl font-bold text-white mb-3">Zero Trust Automation Pipelines</h4>
+                <p class="text-sm text-slate-400 mb-4">Orchestrating complex lifecycle challenges, threat remediation, and Agent-to-Agent workflows using Okta Workflows, Tines, and n8n without relying on fragile custom scripting.</p>
+                <div class="flex gap-2">
+                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Workflows</span>
+                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Tines</span>
+                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">n8n</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="bg-cardbg p-6 rounded-xl border border-slate-700 hover:border-accent transition-colors duration-300">
+                <h4 class="text-xl font-bold text-white mb-3">Local AI & MCP Integration</h4>
+                <p class="text-sm text-slate-400 mb-4">Benchmarking unified memory architectures (Apple M3 Pro, 36GB RAM) against discrete GPU workstations for running private, off-grid LLM inference and configuring Model Context Protocol servers.</p>
+                <div class="flex gap-2">
+                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">LLMs</span>
+                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Ollama</span>
+                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Hermes Desktop</span>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="bg-cardbg p-6 rounded-xl border border-slate-700 hover:border-accent transition-colors duration-300">
+                <h4 class="text-xl font-bold text-white mb-3">Secure Homelab Infrastructure</h4>
+                <p class="text-sm text-slate-400 mb-4">Deploying secure, containerized environments exposed via Cloudflare Tunnels with comprehensive telemetry streaming to Grafana Cloud for production-grade observability.</p>
+                <div class="flex gap-2">
+                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Docker</span>
+                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Cloudflare Tunnels</span>
+                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Grafana</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center p-6 text-sm text-slate-500 mt-10">
+        &copy; 2026 Fred Chung | Camas, WA
+    </footer>
+
+</body>
+</html>
