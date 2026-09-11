@@ -1,0 +1,13 @@
+<!-- Interactive Certifications -->
+<section id="certifications" class="mb-16">
+    <h3 class="text-3xl font-bold text-white mb-8 border-b border-slate-800 pb-2">Certifications & Skills</h3>
+    <div class="flex flex-wrap gap-4 mb-8">
+        <button onclick="filterCerts('all')" aria-label="Show all certifications" class="px-4 py-1 rounded-full bg-slate-800 text-white border border-slate-700 hover:border-accent">All</button>
+        <button onclick="filterCerts('Security')" aria-label="Filter by security certifications" class="px-4 py-1 rounded-full bg-slate-800 text-white border border-slate-700 hover:border-accent">Security</button>
+        <button onclick="filterCerts('Cloud')" aria-label="Filter by cloud certifications" class="px-4 py-1 rounded-full bg-slate-800 text-white border border-slate-700 hover:border-accent">Cloud</button>
+        <button onclick="filterCerts('AI')" aria-label="Filter by AI certifications" class="px-4 py-1 rounded-full bg-slate-800 text-white border border-slate-700 hover:border-accent">AI</button>
+    </div>
+    <div id="cert-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Certs will be injected here by the shell script -->
+    </div>
+</section>

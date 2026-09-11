@@ -22,10 +22,85 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        .fade-in { opacity: 0; transition: opacity 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; }
     </style>
 </head>
 <body class="bg-darkbg text-slate-300 antialiased min-h-screen flex flex-col">
+    <main class="max-w-5xl mx-auto w-full p-6 flex-grow">
+        <!-- Component Placeholders -->
+        <div id="hero-container" class="fade-in"></div>
+        <div id="case-studies-container" class="fade-in"></div>
+        <div id="experience-container" class="fade-in"></div>
+        <div id="certifications-container" class="fade-in"></div>
+    </main>
+  
+    <script>
+        // Certification Data & Logic (Moved from component to shell for script execution)
+        const certs = [
+            { title: "Okta Certified Consultant", issuer: "Okta", category: "Security", link: "https://www.credly.com/users/frederick-chung.9d693bd4", description: "Validated expertise in implementing enterprise-scale identity solutions." },
+            { title: "Okta Certified Workflows - Specialist", issuer: "Okta", category: "Security", link: "https://www.credly.com/users/frederick-chung.9d693bd4", description: "Expertise in building complex, automated identity lifecycles." },
+            { title: "CCZT & CCSK v.5 (CSA)", issuer: "CSA", category: "Security", link: "https://www.credly.com/users/frederick-chung.9d693bd4", description: "Cloud Security Alliance certifications for Zero Trust and Cloud Security." },
+            { title: "AWS Certified Cloud Practitioner", issuer: "AWS", category: "Cloud", link: "https://skillsprofile.skillbuilder.aws/user/frederick-chung/certification-badges", description: "Foundational knowledge of AWS cloud infrastructure." },
+            { title: "Microsoft Learn Profile", issuer: "Microsoft", category: "Cloud", link: "https://learn.microsoft.com/en-us/users/808hyena-2456/", description: "Active learning and skills in Microsoft ecosystem." },
+            { title: "Google AI Skills (GEAR)", issuer: "Google", category: "AI", link: "https://www.skills.google/public_profiles/fc87e7db-3ead-42ac-b033-d1d0086b0bcb", description: "Skills in Generative AI and machine learning concepts." },
+            { title: "Tines Builder: Expert & AI", issuer: "Tines", category: "AI", link: "https://www.credly.com/users/frederick-chung.9d693bd4", description: "Mastery of automated security orchestration and AI integration." }
+        ];
+ 
+        function renderCerts(filter = "all") {
+            const grid = document.getElementById("cert-grid");
+            if (!grid) return;
+            grid.innerHTML = "";
+            const filtered = filter === "all" ? certs : certs.filter(c => c.category === filter);
+            
+            filtered.forEach(cert => {
+                const card = document.createElement("div");
+                card.className = "bg-cardbg/30 p-4 rounded-lg border border-slate-800 hover:border-accent transition-all";
+                card.innerHTML = `
+                    <h4 class="text-lg font-bold text-accent mb-1">${cert.title}</h4>
+                    <p class="text-xs text-slate-500 mb-3">${cert.issuer}</p>
+                    <p class="text-sm text-slate-300 mb-4">${cert.description}</p>
+                    <a href="${cert.link}" target="_blank" class="text-xs font-bold text-white hover:underline">Verify Credential $\rightarrow$</a>
+                `;
+                grid.appendChild(card);
+            });
+        }
+ 
+        function filterCerts(cat) {
+            renderCerts(cat);
+        }
+ 
+        async function loadComponent(containerId, filePaths) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            try {
+                const promises = filePaths.map(async (path) => {
+                    const response = await fetch(path);
+                    if (!response.ok) throw new Error(`Failed to load ${path}`);
+                    const html = await response.text();
+                    container.insertAdjacentHTML('beforeend', html);
+                });
 
+                await Promise.all(promises);
+                container.classList.add('visible');
+            } catch (err) {
+                console.error(`Error loading components for ${containerId}:`, err);
+            }
+        }
+ 
+        document.addEventListener("DOMContentLoaded", () => {
+            loadComponent("hero-container", ["components/hero.html"]);
+            loadComponent("case-studies-container", ["components/case-studies-1.html", "components/case-studies-2.html"]);
+            loadComponent("experience-container", ["components/experience.html"]);
+            loadComponent("certifications-container", ["components/certifications.html"]);
+            
+            setTimeout(() => {
+                renderCerts("all");
+            }, 200);
+        });
+    </script>
+ 
     <!-- Header / Nav -->
     <nav class="max-w-5xl mx-auto w-full p-6 flex justify-between items-center border-b border-slate-800">
         <div class="text-xl font-bold text-white tracking-wide">poutine-lab<span class="text-accent">.com</span></div>
@@ -35,113 +110,10 @@
             <a href="https://github.com/fredericktchung-byte" target="_blank" class="hover:text-accent transition-colors duration-200 text-sm font-semibold">GitHub</a>
         </div>
     </nav>
-
-    <!-- Hero Section -->
-    <header class="max-w-5xl mx-auto w-full p-6 py-20 flex flex-col items-start">
-        <h1 class="text-5xl font-extrabold text-white mb-4 tracking-tight">Fred Chung</h1>
-        <h2 class="text-2xl text-slate-400 mb-8">Senior Identity Architect & Systems Engineer</h2>
-        <p class="text-lg leading-relaxed max-w-2xl text-slate-300 mb-10">
-            Specializing in Identity-as-Code, Zero Trust architecture, and advanced workflow automation. I bridge the gap between enterprise security governance and frictionless user experiences using Okta, AWS, and modern IaC deployments.
-        </p>
-        
-        <!-- Certifications & Skills -->
-        <section id="certifications" class="max-w-5xl mx-auto w-full p-6 mb-16">
-            <h3 class="text-3xl font-bold text-white mb-8 border-b border-slate-800 pb-2">Certifications & Skills</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Identity & Security -->
-                <div>
-                    <h4 class="text-lg font-bold text-accent mb-4">Identity & Security</h4>
-                    <ul class="space-y-3">
-                        <li>
-                            <a href="https://www.credly.com/users/frederick-chung.9d693bd4" target="_blank" class="text-slate-300 hover:text-white transition-colors duration-200">Okta Certified Consultant</a>
-                        </li>
-                        <li>
-                            <a href="https://www.credly.com/users/frederick-chung.9d693bd4" target="_blank" class="text-slate-300 hover:text-white transition-colors duration-200">Okta Workflows Specialty</a>
-                        </li>
-                        <li>
-                            <a href="https://www.credly.com/users/frederick-chung.9d693bd4" target="_blank" class="text-slate-300 hover:text-white transition-colors duration-200">CCZT & CCSK v.5 (CSA)</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Cloud & Infrastructure -->
-                <div>
-                    <h4 class="text-lg font-bold text-accent mb-4">Cloud & Infrastructure</h4>
-                    <ul class="space-y-3">
-                        <li>
-                            <a href="https://skillsprofile.skillbuilder.aws/user/frederick-chung/certification-badges" target="_blank" class="text-slate-300 hover:text-white transition-colors duration-200">AWS Certified Cloud Practitioner</a>
-                        </li>
-                        <li>
-                            <a href="https://learn.microsoft.com/en-us/users/808hyena-2456/" target="_blank" class="text-slate-300 hover:text-white transition-colors duration-200">Microsoft Learning Profile</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- AI & Automation -->
-                <div>
-                    <h4 class="text-lg font-bold text-accent mb-4">AI & Automation</h4>
-                    <ul class="space-y-3">
-                        <li>
-                            <a href="https://www.skills.google/public_profiles/fc87e7db-3ead-42ac-b033-d1d0086b0bcb" target="_blank" class="text-slate-300 hover:text-white transition-colors duration-200">Google AI Skills (GEAR)</a>
-                        </li>
-                        <li>
-                            <a href="https://www.credly.com/users/frederick-chung.9d693bd4" target="_blank" class="text-slate-300 hover:text-white transition-colors duration-200">Enterprise Workflow Automation</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </header>
-
-    <!-- Projects & Case Studies -->
-    <main class="max-w-5xl mx-auto w-full p-6 flex-grow">
-        <h3 class="text-3xl font-bold text-white mb-8 border-b border-slate-800 pb-2">Technical Showcases</h3>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Project 1 -->
-            <div class="bg-cardbg p-6 rounded-xl border border-slate-700 hover:border-accent transition-colors duration-300">
-                <h4 class="text-xl font-bold text-white mb-3">Enterprise Identity-as-Code</h4>
-                <p class="text-sm text-slate-400 mb-4">A modular Terraform deployment framework for automated enterprise identity lifecycle management utilizing Okta. Features dynamic network perimeters and automated app provisioning.</p>
-                <div class="flex gap-2">
-                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Terraform</span>
-                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Okta</span>
-                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">GitHub Actions</span>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="bg-cardbg p-6 rounded-xl border border-slate-700 hover:border-accent transition-colors duration-300">
-                <h4 class="text-xl font-bold text-white mb-3">Zero Trust Automation Pipelines</h4>
-                <p class="text-sm text-slate-400 mb-4">Orchestrating complex lifecycle challenges, threat remediation, and Agent-to-Agent workflows using Okta Workflows, Tines, and n8n without relying on fragile custom scripting.</p>
-                <div class="flex gap-2">
-                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Workflows</span>
-                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Tines</span>
-                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">n8n</span>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="bg-cardbg p-6 rounded-xl border border-slate-700 hover:border-accent transition-colors duration-300">
-                <h4 class="text-xl font-bold text-white mb-3">Local AI & MCP Integration</h4>
-                <p class="text-sm text-slate-400 mb-4">Benchmarking unified memory architectures (Apple M3 Pro, 36GB RAM) against discrete GPU workstations for running private, off-grid LLM inference and configuring Model Context Protocol servers.</p>
-                <div class="flex gap-2">
-                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">LLMs</span>
-                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Ollama</span>
-                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Hermes Desktop</span>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="bg-cardbg p-6 rounded-xl border border-slate-700 hover:border-accent transition-colors duration-300">
-                <h4 class="text-xl font-bold text-white mb-3">Secure Homelab Infrastructure</h4>
-                <p class="text-sm text-slate-400 mb-4">Deploying secure, containerized environments exposed via Cloudflare Tunnels with comprehensive telemetry streaming to Grafana Cloud for production-grade observability.</p>
-                <div class="flex gap-2">
-                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Docker</span>
-                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Cloudflare Tunnels</span>
-                    <span class="text-xs bg-slate-800 px-2 py-1 rounded text-slate-300">Grafana</span>
-                </div>
-            </div>
-        </div>
-    </main>
-
+ 
+    <!-- Content Area (Stitched) -->
+    <div id="main-content"></div>
+    
     <footer class="text-center p-6 text-sm text-slate-500 mt-10 border-t border-slate-800">
         <div class="mb-4">
             <span class="font-bold text-white">&copy; 2026 Fred Chung | Camas, WA</span>
@@ -154,6 +126,5 @@
             <a href="https://www.skills.google/public_profiles/fc87e7db-3ead-42ac-b033-d1d0086b0bcb" target="_blank" class="hover:text-accent">Google Skills</a>
         </div>
     </footer>
-
 </body>
 </html>
