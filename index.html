@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
@@ -62,70 +62,114 @@
 
     <script>
         // Core Platform Certifications Data
-        const certs = [
-            {
-                title: "Okta Certified Consultant",
-                issuer: "Okta",
-                category: "Security",
-                issued: "Jul 2026",
-                link: "https://www.credly.com/users/frederick-chung.9d693bd4",
-                description: "Validates technical proficiency in designing, implementing, and troubleshooting complex enterprise identity architectures, multi-tenant federation, and custom integration workflows."
-            },
-            {
-                title: "Okta Certified Workflows - Specialist",
-                issuer: "Okta",
-                category: "Security",
-                issued: "Oct 2024",
-                link: "https://www.credly.com/users/frederick-chung.9d693bd4",
-                description: "Demonstrates advanced mastery in constructing event-driven, complex automation lifecycles, API orchestrations, and error-handling pipelines via Okta Workflows."
-            },
-            {
-                title: "CCZT & CCSK v.5 (CSA)",
-                issuer: "Cloud Security Alliance",
-                category: "Security",
-                issued: "Aug 2026",
-                link: "https://www.credly.com/users/frederick-chung.9d693bd4",
-                description: "Comprehensively certifies architectural knowledge across Zero Trust principles, governance, data security, and cloud risk management frameworks."
-            },
-            {
-                title: "Tines Builder: Expert & AI",
-                issuer: "Tines",
-                category: "AI",
-                issued: "Aug 2026",
-                link: "https://www.credly.com/users/frederick-chung.9d693bd4",
-                description: "Certifies expert-level capability in automated security orchestration, cross-platform iPaaS integrations, and LLM-assisted workflow building."
-            },
-            {
-                title: "AWS Certified Cloud Practitioner",
-                issuer: "AWS",
-                category: "Cloud",
-                issued: "Aug 2021",
-                link: "https://skillsprofile.skillbuilder.aws/user/frederick-chung/certification-badges",
-                description: "Proves foundational knowledge of core AWS cloud services, networking security groups, IAM policies, and cloud infrastructure management."
-            },
-            {
-                title: "Google AI & Generative AI Academy",
-                issuer: "Google",
-                category: "AI",
-                issued: "2026",
-                link: "https://www.skills.google/public_profiles/fc87e7db-3ead-42ac-b033-d1d0086b0bcb",
-                description: "Rigorous technical training covering Generative AI fundamentals, large language model deployment, prompt engineering, and machine learning concepts."
-            }
-        ];
+const certs = [
+    {
+        title: "Okta Certified Consultant",
+        issuer: "Okta",
+        category: "Security",
+        issued: "Jul 2026",
+        link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges",
+        description: "Validates technical proficiency in designing, implementing, and troubleshooting complex enterprise identity architectures, multi-tenant federation, and custom integration workflows."
+    },
+    {
+        title: "Okta Certified Workflows - Specialist",
+        issuer: "Okta",
+        category: "Security",
+        issued: "Oct 2024",
+        link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges",
+        description: "Demonstrates advanced mastery in constructing event-driven, complex automation lifecycles, API orchestrations, and error-handling pipelines via Okta Workflows."
+    },
+    {
+        title: "AWS Certified Cloud Practitioner",
+        issuer: "AWS",
+        category: "Cloud",
+        issued: "Aug 2021",
+        link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges",
+        description: "Validates overall understanding of the AWS Cloud platform, covering basic cloud concepts, security, and compliance within the Shared Responsibility model."
+    },
+    {
+        title: "Certificate of Competence in Zero Trust (CCZT)",
+        issuer: "Cloud Security Alliance",
+        category: "Security",
+        issued: "Aug 2026",
+        link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges",
+        description: "Validates an authoritative understanding of Zero Trust architecture, delivering the knowledge required to understand core concepts and implement a Zero Trust strategy."
+    },
+    {
+        title: "Certificate of Cloud Security Knowledge v.5 (CCSK)",
+        issuer: "Cloud Security Alliance",
+        category: "Security",
+        issued: "Aug 2026",
+        link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges",
+        description: "Demonstrates a thorough understanding of cloud security fundamentals, including architecture, governance, compliance, operations, encryption, and virtualization."
+    }
+];
 
-        // Specialized Micro-Credentials Array
-        const microCredentials = [
-            { title: "Secure Multi-Agent Workflows with Okta Agent to Agent", issuer: "Okta", year: "Sep 2026" },
-            { title: "AWS Application Networking & Serverless Demonstrated", issuer: "AWS", year: "Sep 2026" },
-            { title: "Analyze Identity Risk with ISPM", issuer: "Okta", year: "Sep 2026" },
-            { title: "AWS Cloud Quest: Generative AI Practitioner", issuer: "AWS", year: "Sep 2026" },
-            { title: "Build Agents in Copilot Studio", issuer: "Microsoft", year: "Aug 2026" },
-            { title: "Extend Auth0 with Actions & Attack Protection", issuer: "Auth0", year: "Jul 2026" },
-            { title: "Financial-Grade Identity & B2B Multi-Tenant Mgmt", issuer: "Auth0", year: "Jun 2026" },
-            { title: "Securing AI Agents on Behalf of Users", issuer: "Auth0", year: "Jun 2026" },
-            { title: "Configure DB Integration for Okta Privileged Access", issuer: "Okta", year: "Jun 2026" },
-            { title: "Google Workspace Administrator", issuer: "Google Cloud", year: "Jun 2026" }
-        ];
+// Specialized Micro-Credentials & Academy Badges Array
+const microCredentials = [
+    // Databricks (From your active wallet)
+    { title: "Academy Accreditation - AI Agent Fundamentals", issuer: "Databricks", year: "Jun 2026", link: "https://credentials.databricks.com/20089127-2406-45e7-837d-1d17dc4c04b2#acc.5kMjAeaD" },
+    { title: "Academy Accreditation - Data Governance Fundamentals", issuer: "Databricks", year: "Jun 2026", link: "https://credentials.databricks.com/9b16e733-997d-44c9-bb2a-615936c8a9bf#acc.9T3RWMEs" },
+    { title: "Academy Accreditation - Generative AI Fundamentals", issuer: "Databricks", year: "Jun 2026", link: "https://credentials.databricks.com/c20552ba-5bcb-4284-a4ca-dd890aef026d#acc.Wy6Eupcz" },
+    { title: "Academy Accreditation - Databricks Fundamentals", issuer: "Databricks", year: "May 2026", link: "https://credentials.databricks.com/699b9092-0e23-4aae-a611-baa01bfe3800#acc.HFIvx7qc" },
+
+    // Tines (Foundational badges leading to Expert)
+    { title: "Tines Stories Foundations", issuer: "Tines", year: "2026", link: "https://www.tines.com/university/tines-stories-foundations/path-completed/?badge_id=5c177e19-151d-4c7a-8555-387256ae5210" },
+    { title: "Tines: Platform Administrator", issuer: "Tines", year: "2026", link: "https://www.tines.com/university/platform-administrator/path-completed/?badge_id=dd33a7d6-a243-46e4-8899-c9c7e9c46be0" },
+
+    { title: "Tines Builder: Core", issuer: "Tines", year: "2026", link: "https://www.tines.com/university/builder-core/path-completed/?badge_id=c668c847-8213-46f9-a511-deaa84640192" },
+    { title: "Tines Stories Intermediate", issuer: "Tines", year: "2026", link: "https://www.tines.com/university/builder-intermediate/path-completed/?badge_id=4c7a9337-948f-4b49-8ade-b52a3ae64d06" },
+    { title: "Tines Builder: Expert", issuer: "Tines", year: "2026", link: "https://www.tines.com/university/builder-expert/path-completed/?badge_id=c9fdaa03-e99b-4b6e-817c-af5790f210b4" },
+    { title: "Tines Builder: AI", issuer: "Tines", year: "2026", link: "https://www.tines.com/university/builder-ai/path-completed/?badge_id=548816a6-96b2-4b11-bedb-3f17ac409e04" },
+
+    // Okta & Auth0
+    { title: "Secure Multi-Agent Workflows with Okta Agent to Agent", issuer: "Okta", year: "Sep 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+    { title: "Analyze Identity Risk with ISPM", issuer: "Okta", year: "Sep 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+    { title: "Extend Auth0 with Actions & Attack Protection", issuer: "Auth0", year: "Jul 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+    { title: "Auth0 Security Best Practices", issuer: "Auth0", year: "Jun 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+    { title: "Financial-Grade Identity & B2B Multi-Tenant Mgmt", issuer: "Auth0", year: "Jun 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+    { title: "Securing AI Agents on Behalf of Users", issuer: "Auth0", year: "Jun 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+    { title: "Authenticate Users", issuer: "Okta", year: "Jun 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+    { title: "Configure DB Integration for Okta Privileged Access", issuer: "Okta", year: "Jun 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+
+    // AWS
+    { title: "AWS Application Networking Demonstrated", issuer: "AWS", year: "Sep 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+    { title: "AWS Serverless Demonstrated", issuer: "AWS", year: "Sep 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+    { title: "AWS Cloud Quest: Generative AI Practitioner", issuer: "AWS", year: "Sep 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+
+    // Microsoft & Google
+    { title: "Build Agents in Copilot Studio", issuer: "Microsoft", year: "Aug 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+    { title: "Google Workspace Administrator", issuer: "Google Cloud", year: "Jun 2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+    { title: "Google AI & Generative AI Academy", issuer: "Google", year: "2026", link: "https://www.credly.com/users/frederick-chung.9d693bd4/badges" },
+    
+    // Workato (PDF Link)
+{ 
+    title: "Workato Foundations Level 1", 
+    issuer: "Workato Academy", 
+    year: "2026", 
+    link: "certificates/Workato-Foundations-Level-1.pdf"
+},
+{ 
+    title: "Workato Foundations Level 2", 
+    issuer: "Workato Academy", 
+    year: "2026", 
+    link: "certificates/Workato-Foundations-Level-2.pdf"
+},
+{ 
+    title: "Workato Generative AI", 
+    issuer: "Workato Academy", 
+    year: "2026", 
+    link: "certificates/Workato-genAi-Certificate.pdf"
+},
+
+    // n8n (Community Profile/Badge Link)
+    { 
+        title: "n8n Course Level 1: Workflow Automation", 
+        issuer: "n8n", 
+        year: "May 2026", 
+        link: "https://community.n8n.io/badges/104/completed-n8n-course-level-1?username=fred_chung" 
+    }
+];
 
         function renderCerts(filter = "all") {
             const grid = document.getElementById("cert-grid");
@@ -150,9 +194,18 @@
                         <button onclick="openCertModal(${idx})" class="text-xs font-semibold text-accent hover:underline flex items-center gap-1">
                             View Details
                         </button>
-                        <a href="${cert.link}" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-white flex items-center gap-1">
-                            Verify &rarr;
-                        </a>
+                        ${cert.link.includes('.pdf') || cert.link.startsWith('file://')
+    ? `<a href="${cert.link}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-accent hover:underline flex items-center gap-1">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-.4-3.6l1.7-1.7a4 4 0 1 0-5.6-5.6l-1.7 1.7A4 4 0 0 0 17 21z"/>
+            <circle cx="8.5" cy="8.5" r="3.5"/>
+        </svg>
+        View Certificate
+    </a>`
+    : `<a href="${cert.link}" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-white flex items-center gap-1">
+                        Verify →
+                      </a>`}
+
                     </div>
                 `;
                 grid.appendChild(card);
@@ -166,20 +219,33 @@
         }
 
         function renderMicroCerts() {
-            const container = document.getElementById("micro-certs-grid");
-            if (!container) return;
-            container.innerHTML = "";
+    const container = document.getElementById("micro-certs-grid");
+    if (!container) return;
+    container.innerHTML = "";
 
-            microCredentials.forEach(mc => {
-                const pill = document.createElement("div");
-                pill.className = "bg-slate-900/60 border border-slate-800 px-3 py-2 rounded-lg text-xs flex justify-between items-center";
-                pill.innerHTML = `
-                    <span class="text-slate-200 font-medium">${mc.title}</span>
-                    <span class="text-slate-500 text-[10px] ml-2 whitespace-nowrap">${mc.issuer}</span>
-                `;
-                container.appendChild(pill);
-            });
+    microCredentials.forEach(mc => {
+        // Use an anchor tag if a link exists, otherwise a div
+        const wrapper = mc.link && mc.link !== "PASTE_URL" ? "a" : "div";
+        const href = mc.link && mc.link !== "PASTE_URL" ? `href="${mc.link}" target="_blank" rel="noopener noreferrer"` : "";
+        const hoverClass = mc.link && mc.link !== "PASTE_URL" ? "hover:border-accent hover:bg-slate-800 transition-colors" : "";
+        
+        const pill = document.createElement(wrapper);
+        pill.className = `bg-slate-900/60 border border-slate-800 px-3 py-2 rounded-lg text-xs flex justify-between items-center ${hoverClass}`;
+        if (href) pill.innerHTML = href; // Hacky way to inject href if it's an anchor, but better to use setAttribute:
+        
+        if(wrapper === "a") {
+            pill.setAttribute("href", mc.link);
+            pill.setAttribute("target", "_blank");
+            pill.setAttribute("rel", "noopener noreferrer");
         }
+
+        pill.innerHTML = `
+            <span class="text-slate-200 font-medium">${mc.title}</span>
+            <span class="text-slate-500 text-[10px] ml-2 whitespace-nowrap">${mc.issuer} &bull; ${mc.year}</span>
+        `;
+        container.appendChild(pill);
+    });
+}
 
         function openCertModal(idx) {
             const cert = certs[idx];
